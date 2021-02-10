@@ -18,7 +18,6 @@ class APITestCases(unittest.TestCase):
         RESTClient.ValidateJson(response.json(), Schema.ListCategorySchemas)
 
     @ddt.data(('Engineering'), ('Cookery'), ('Science'))
-    @ddt.unpack
     def test_AddCategory(self, category):
         response = RESTClient.PostRequest(URL.BaseURL, Endpoint.BlogCategory, {"name": ""+category+""})
 
