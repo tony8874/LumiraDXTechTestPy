@@ -35,6 +35,15 @@ class APITestCases(unittest.TestCase):
         # Content-Type verification
         self.assertEqual('application/json', response.headers['content-type'])
 
+    @ddt.data(('1', 200), ('20', 404))
+    @ddt.unpack
+    def test_BlogList(self, category_id, status_code):
+        response = RESTClient.GetRequest(URL.BaseURL, Endpoint.BlogCategory + category_id)
+        # Status Code verification
+        self.assertEqual(status_code, response.status_code)
+        # Content-Type verification
+        self.assertEqual('application/json', response.headers['content-type'])
+
 
 if __name__ == '__main__':
     unittest.main()
