@@ -1,6 +1,6 @@
 import unittest
-
 import ddt as ddt
+
 from HelperClass.URL import URL
 from HelperClass.API import RESTClient
 from SchemaFiles.Schemas import Schema

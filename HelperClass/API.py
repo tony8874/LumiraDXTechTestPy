@@ -27,5 +27,3 @@ class RESTClient:
             print("Schema error detected")
 
         return
-
-
