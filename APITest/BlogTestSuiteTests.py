@@ -1,10 +1,10 @@
 import unittest
 import ddt as ddt
 
-from HelperClass.URL import URL
-from HelperClass.API import RESTClient
+from HelperClass.APIUrl import URL
+from HelperClass.RESTClient import RESTClient
 from SchemaFiles.Schemas import Schema
-from HelperClass.Endpoints import Endpoint
+from HelperClass.APIEndpoints import Endpoint
 
 
 @ddt.ddt
