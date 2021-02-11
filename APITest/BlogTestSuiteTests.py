@@ -1,10 +1,10 @@
 import unittest
 import ddt as ddt
 
-from HelperClass.APIUrl import URL
-from HelperClass.RESTClient import RESTClient
+from HelperClass.URL_Helper import URL
+from HelperClass.REST_Helper import RESTClient
 from SchemaFiles.Schemas import Schema
-from HelperClass.APIEndpoints import Endpoint
+from HelperClass.Endpoint_Helper import Endpoint
 
 
 @ddt.ddt
@@ -25,6 +25,10 @@ class APITestCases(unittest.TestCase):
         self.assertEqual(201, response.status_code)
         # Content-Type verification
         self.assertEqual('application/json', response.headers['content-type'])
+        # Verify category added
+        response = RESTClient.GetRequest(URL.BaseURL, Endpoint.BlogCategory)
+        data = response.json()
+        self.assertEqual(category, data[len(response.json())-1]['name'])
 
     @ddt.data(('4', 204), ('5', 204), ('6', 204), ('20', 404))
     @ddt.unpack
